@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class ToggleAutoPortSelection: CommandBase {
@@ -19,7 +21,7 @@ internal class ToggleAutoPortSelection: CommandBase {
 				Hooks.AutoSelectPorts ^= true;
 				break;
 		}
-		Foxnet.Libsune.Terminal.Print($"Vanilla portcrushers are {(Hooks.AutoSelectPorts ? "smart" : "dumb")}");
+		os.Print(Foxnet.MESSAGE_PREFIX, $"Vanilla portcrushers are {(Hooks.AutoSelectPorts ? "smart" : "dumb")}");
 		Foxnet.PrintRandomSnark(os);
 	}
 }

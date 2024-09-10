@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class ResetIp: CommandBase {
@@ -11,18 +13,18 @@ internal class ResetIp: CommandBase {
 			? Programs.getComputer(os, args[0])
 			: os.connectedComp;
 		if (c is null) {
-			Foxnet.Libsune.Terminal.Print("Target computer not found");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Target computer not found");
 			return;
 		}
 		if (c.ip == os.thisComputer.ip) {
-			Foxnet.Libsune.Terminal.Print($"To change your own IP, use the {nameof(ResetOwnIp)} command.");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"To change your own IP, use the {nameof(ResetOwnIp)} command.");
 			return;
 		}
 		bool isConnected = c.ip == os.connectedComp.ip;
 		c.ip = NetworkMap.generateRandomIP();
 		if (isConnected)
 			os.connectedIP = c.ip;
-		Foxnet.Libsune.Terminal.Print($"Changed target machine's IP to {c.ip}");
+		os.Print(Foxnet.MESSAGE_PREFIX, $"Changed target machine's IP to {c.ip}");
 		Foxnet.PrintRandomSnark(os);
 	}
 }

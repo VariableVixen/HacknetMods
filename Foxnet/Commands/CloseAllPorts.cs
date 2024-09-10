@@ -2,6 +2,8 @@ using Hacknet;
 
 using Pathfinder.Port;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class CloseAllPorts: CommandBase {
@@ -21,11 +23,11 @@ internal class CloseAllPorts: CommandBase {
 
 				hadPorts = true;
 				port.SetCracked(false, source);
-				Foxnet.Libsune.Terminal.Print($"Closed {port.DisplayName} port ({port.Record.Protocol}, {port.PortNumber})");
+				os.Print(Foxnet.MESSAGE_PREFIX, $"Closed {port.DisplayName} port ({port.Record.Protocol}, {port.PortNumber})");
 			}
 
 			if (!hadPorts)
-				Foxnet.Libsune.Terminal.Print("No ports to close");
+				os.Print(Foxnet.MESSAGE_PREFIX, "No ports to close");
 		}
 	}
 }

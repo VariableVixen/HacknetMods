@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class StopTrace: CommandBase {
@@ -11,19 +13,19 @@ internal class StopTrace: CommandBase {
 		bool worked = false;
 		if (os.traceTracker.active) {
 			os.traceTracker.stop();
-			Foxnet.Libsune.Terminal.Print("Killed current trace");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Killed current trace");
 			worked = true;
 		}
 		if (os.TraceDangerSequence.IsActive) {
 			os.TraceDangerSequence.CancelTraceDangerSequence();
 			os.TraceDangerSequence.percentComplete = 0;
-			Foxnet.Libsune.Terminal.Print("ETAS terminated");
+			os.Print(Foxnet.MESSAGE_PREFIX, "ETAS terminated");
 			worked = true;
 		}
 		if (os.TrackersInProgress.Count > 0) {
 			int trackers = os.TrackersInProgress.Count;
 			os.TrackersInProgress.Clear();
-			Foxnet.Libsune.Terminal.Print($"Killed {trackers} tracker{(trackers == 1 ? "" : "s")}");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Killed {trackers} tracker{(trackers == 1 ? "" : "s")}");
 			worked = true;
 		}
 

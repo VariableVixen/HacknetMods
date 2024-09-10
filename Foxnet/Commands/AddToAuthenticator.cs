@@ -3,6 +3,8 @@ using System.Linq;
 
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class AddToAuthenticator: CommandBase {
@@ -27,7 +29,7 @@ internal class AddToAuthenticator: CommandBase {
 						.Split('\n')
 						.Where(s => !string.IsNullOrWhiteSpace(s))
 				));
-				Foxnet.Libsune.Terminal.Print($"Added to IP list");
+				os.Print(Foxnet.MESSAGE_PREFIX, $"Added to IP list");
 				return;
 			}
 
@@ -43,16 +45,16 @@ internal class AddToAuthenticator: CommandBase {
 							.Where(s => !string.IsNullOrWhiteSpace(s))
 					));
 					os.netMap.discoverNode(daemon);
-					Foxnet.Libsune.Terminal.Print($"Identified authenticator {target}, added to IP list");
+					os.Print(Foxnet.MESSAGE_PREFIX, $"Identified authenticator {target}, added to IP list");
 					Foxnet.PrintRandomSnark(os);
 					return;
 				}
 			}
 
-			Foxnet.Libsune.Terminal.Print("Couldn't find local or remote authenticator");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Couldn't find local or remote authenticator");
 		}
 		else {
-			Foxnet.Libsune.Terminal.Print($"Can't find target computer {args[0]}");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Can't find target computer {args[0]}");
 		}
 	}
 }

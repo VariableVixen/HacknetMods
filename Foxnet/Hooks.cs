@@ -13,11 +13,14 @@ using Pathfinder;
 using Pathfinder.Port;
 using Pathfinder.Util;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet;
 
 [HarmonyPatch]
 [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "parameter names must conform to Harmony specs in order to work")]
 public static class Hooks {
+	private static ConstructorInfo getCtor(Type type, params Type[] args) => AccessTools.Constructor(type, args) ?? throw new NullReferenceException($"failed to reflect ctor for {type.FullName}");
 	private static FieldInfo getField(Type type, string name) => AccessTools.Field(type, name) ?? throw new NullReferenceException($"failed to reflect field {type.FullName}.{name}");
 	private static MethodInfo getMethod(Type type, string name) => AccessTools.Method(type, name) ?? throw new NullReferenceException($"failed to reflect method {type.FullName}.{name}(...)");
 	private static MethodInfo getMethod(Type type, string name, params Type[] args) => AccessTools.Method(type, name, args)
@@ -131,7 +134,7 @@ public static class Hooks {
 			os.terminal.lastRunCommand = string.Join(" ", p);
 			os.display.command = name;
 			os.display.commandArgs = p;
-			Foxnet.Libsune.Terminal.Print($"Target port auto-selected: {os.terminal.lastRunCommand}");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Target port auto-selected: {os.terminal.lastRunCommand}");
 		}
 	}
 

@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class ToggleStealthMode: CommandBase {
@@ -19,7 +21,7 @@ internal class ToggleStealthMode: CommandBase {
 				Hooks.BlockComputerLogs ^= true;
 				break;
 		}
-		Foxnet.Libsune.Terminal.Print($"Your logs are{(Hooks.BlockComputerLogs ? "" : " not")} being blocked");
+		os.Print(Foxnet.MESSAGE_PREFIX, $"Your logs are{(Hooks.BlockComputerLogs ? "" : " not")} being blocked");
 		Foxnet.PrintRandomSnark(os);
 	}
 }

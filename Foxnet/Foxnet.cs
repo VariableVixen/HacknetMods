@@ -11,7 +11,7 @@ using Hacknet;
 
 using Pathfinder.Command;
 
-using PrincessRTFM.Hacknet.Lib;
+using PrincessRTFM.Hacknet.Lib.Extensions;
 
 namespace PrincessRTFM.Hacknet.Foxnet;
 
@@ -23,11 +23,12 @@ public class Foxnet: HacknetPlugin {
 		NAME = "Foxnet",
 		VERSION = "0.1.0";
 
+	public const string MESSAGE_PREFIX = "OuO >>";
+
 	internal delegate void PluginCommandDelegate(OS os, string cmd, string[] args);
 
 	internal static Dictionary<string, CommandBase> RegisteredCommands { get; private set; } = [];
 	private static ManualLogSource logger { get; set; } = null!;
-	internal static LibsuneHN Libsune { get; private set; } = null!;
 
 	private static readonly Dictionary<string, string> exeFileCache = [];
 
@@ -85,8 +86,6 @@ public class Foxnet: HacknetPlugin {
 
 	public override bool Load() {
 		logger = this.Log;
-		Libsune = new(this);
-		Libsune.Terminal.OutputPrefix = "OuO >>";
 
 		Info("Applying harmony patches");
 		this.HarmonyInstance.PatchAll(this.GetType().Assembly);
@@ -152,7 +151,7 @@ public class Foxnet: HacknetPlugin {
 	public static void PrintRandomSnark(OS os, bool includeNewlinePrefix = true) {
 		if (includeNewlinePrefix)
 			os.write("\n");
-		Foxnet.Libsune.Terminal.Print(Snark);
+		os.Print(MESSAGE_PREFIX, Snark);
 		os.write("\n");
 	}
 }

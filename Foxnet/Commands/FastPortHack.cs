@@ -2,6 +2,8 @@ using Hacknet;
 
 using Pathfinder.Port;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class FastPortHack: CommandBase {
@@ -21,26 +23,26 @@ internal class FastPortHack: CommandBase {
 				}
 
 				if (opened < c.GetRealPortsNeededForCrack()) {
-					Foxnet.Libsune.Terminal.Print("Not enough ports open");
+					os.Print(Foxnet.MESSAGE_PREFIX, "Not enough ports open");
 					return;
 				}
 			}
 
 			if (c.hasProxy && c.proxyActive) {
-				Foxnet.Libsune.Terminal.Print("Proxy still active");
+				os.Print(Foxnet.MESSAGE_PREFIX, "Proxy still active");
 				return;
 			}
 
 			if (c.firewall is not null && !c.firewall.solved) {
-				Foxnet.Libsune.Terminal.Print("Firewall still active");
+				os.Print(Foxnet.MESSAGE_PREFIX, "Firewall still active");
 				return;
 			}
 
 			c.userLoggedIn = true;
-			Foxnet.Libsune.Terminal.Print("Logged in");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Logged in");
 
 			os.takeAdmin();
-			Foxnet.Libsune.Terminal.Print("Admin access granted");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Admin access granted");
 
 			Foxnet.PrintRandomSnark(os);
 		}

@@ -6,6 +6,8 @@ using Hacknet;
 
 using Pathfinder.Executable;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class GetAllPrograms: CommandBase {
@@ -31,13 +33,13 @@ internal class GetAllPrograms: CommandBase {
 			}
 		}
 		catch (Exception e) {
-			Foxnet.Libsune.Terminal.Print($"Failed to reflect into custom executable manager");
-			Foxnet.Libsune.Terminal.Print($"{e.GetType().Name}:\n{e.Message}");
-			Foxnet.Libsune.Terminal.Print("Cannot provide custom executables");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Failed to reflect into custom executable manager");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"{e.GetType().Name}:\n{e.Message}");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Cannot provide custom executables");
 		}
 		bin.files.AddRange(files);
-		Foxnet.Libsune.Terminal.Print($"Added {files.Count} program{(files.Count == 1 ? "" : "s")} to your /bin folder.");
+		os.Print(Foxnet.MESSAGE_PREFIX, $"Added {files.Count} program{(files.Count == 1 ? "" : "s")} to your /bin folder.");
 		if (files.Count > 0 && cmd == "xmas")
-			Foxnet.Libsune.Terminal.Print("Ho ho ho, ya naughty fuck.");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Ho ho ho, ya naughty fuck.");
 	}
 }

@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class SetFirewallPassword: CommandBase {
@@ -17,14 +19,14 @@ internal class SetFirewallPassword: CommandBase {
 				if (pass.Length > Firewall.MIN_SOLUTION_LENGTH) {
 					c.firewall.solution = args[0];
 					c.firewall.solutionLength = args[0].Length;
-					Foxnet.Libsune.Terminal.Print($"Firewall password changed to {c.firewall.solution ?? "<no solution?>"}");
+					os.Print(Foxnet.MESSAGE_PREFIX, $"Firewall password changed to {c.firewall.solution ?? "<no solution?>"}");
 				}
 				else {
-					Foxnet.Libsune.Terminal.Print($"Firewall password must be more than {Firewall.MIN_SOLUTION_LENGTH} characters");
+					os.Print(Foxnet.MESSAGE_PREFIX, $"Firewall password must be more than {Firewall.MIN_SOLUTION_LENGTH} characters");
 				}
 			}
 			else {
-				Foxnet.Libsune.Terminal.Print("No firewall present");
+				os.Print(Foxnet.MESSAGE_PREFIX, "No firewall present");
 			}
 		}
 	}

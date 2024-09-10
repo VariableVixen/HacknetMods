@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class AddFirewall: CommandBase {
@@ -27,10 +29,10 @@ internal class AddFirewall: CommandBase {
 				}
 				f.additionalDelay = extra;
 				c.firewall = f;
-				Foxnet.Libsune.Terminal.Print($"Firewall added ({c.firewall.solution ?? "<no solution?>"})");
+				os.Print(Foxnet.MESSAGE_PREFIX, $"Firewall added ({c.firewall.solution ?? "<no solution?>"})");
 			}
 			else {
-				Foxnet.Libsune.Terminal.Print("Firewall already present");
+				os.Print(Foxnet.MESSAGE_PREFIX, "Firewall already present");
 			}
 		}
 	}

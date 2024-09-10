@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class CleanDisconnect: CommandBase {
@@ -12,7 +14,7 @@ internal class CleanDisconnect: CommandBase {
 			Computer remote = os.connectedComp;
 			Programs.disconnect(["disconnect"], os);
 			remote.files?.root?.searchForFolder("log")?.files?.Clear();
-			Foxnet.Libsune.Terminal.Print($"Wiped remote logs on {remote.ip}");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Wiped remote logs on {remote.ip}");
 			Foxnet.PrintRandomSnark(os);
 		}
 	}

@@ -3,7 +3,7 @@ using System.Linq;
 
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib;
+using PrincessRTFM.Hacknet.Lib.Extensions;
 
 namespace PrincessRTFM.Hacknet.Foxnet;
 
@@ -42,8 +42,8 @@ internal abstract class CommandBase {
 		string[] args = argv.Skip(1).ToArray();
 
 		if (args.Length > this.MaxArguments || args.Length < this.RequiredArguments) {
-			Foxnet.Libsune.Terminal.Print("Invalid usage (argument count mismatch)");
-			Foxnet.Libsune.Terminal.Print($"Usage: {this.Usage}");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Invalid usage (argument count mismatch)");
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Usage: {this.Usage}");
 			return;
 		}
 
@@ -51,8 +51,8 @@ internal abstract class CommandBase {
 			this.Execute(os, cmd, args);
 		}
 		catch (Exception ex) {
-			Foxnet.Libsune.Terminal.Print($"Foxnet command error in {this.GetType().Name}:\n> {ex.GetType().Name}\n>> {ex.Message}");
-			Foxnet.Libsune.Terminal.Print(ex.StackTrace);
+			os.Print(Foxnet.MESSAGE_PREFIX, $"Foxnet command error in {this.GetType().Name}:\n> {ex.GetType().Name}\n>> {ex.Message}");
+			os.Print(Foxnet.MESSAGE_PREFIX, ex.StackTrace);
 		}
 	}
 }

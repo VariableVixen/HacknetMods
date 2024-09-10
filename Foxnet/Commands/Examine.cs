@@ -4,6 +4,8 @@ using Hacknet;
 
 using Pathfinder.Port;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class Examine: CommandBase {
@@ -166,10 +168,10 @@ internal class Examine: CommandBase {
 			lines.AddRange(Foxnet.Snark);
 			lines.Add("\n");
 
-			Foxnet.Libsune.Terminal.Print(lines.ToArray());
+			os.Print(Foxnet.MESSAGE_PREFIX, lines.ToArray());
 		}
 		else {
-			Foxnet.Libsune.Terminal.Print("Target computer not found");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Target computer not found");
 		}
 	}
 }

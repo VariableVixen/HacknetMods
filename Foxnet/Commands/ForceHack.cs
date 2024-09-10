@@ -1,5 +1,7 @@
 using Hacknet;
 
+using PrincessRTFM.Hacknet.Lib.Extensions;
+
 namespace PrincessRTFM.Hacknet.Foxnet.Commands;
 
 internal class ForceHack: CommandBase {
@@ -15,10 +17,10 @@ internal class ForceHack: CommandBase {
 			Foxnet.RegisteredCommands[nameof(OpenAllPorts)].Execute(os, cmd, args);
 
 			c.userLoggedIn = true;
-			Foxnet.Libsune.Terminal.Print("Logged in");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Logged in");
 
 			os.takeAdmin();
-			Foxnet.Libsune.Terminal.Print("Admin access granted");
+			os.Print(Foxnet.MESSAGE_PREFIX, "Admin access granted");
 
 			Foxnet.PrintRandomSnark(os);
 		}
