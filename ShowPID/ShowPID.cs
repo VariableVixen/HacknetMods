@@ -38,7 +38,8 @@ public class ShowPID: HacknetPlugin {
 	}
 
 	#region Harmony patching
-	private static FieldInfo getField(Type type, string name) => AccessTools.Field(type, name) ?? throw new NullReferenceException($"failed to reflect field {type.FullName}.{name}");
+	private static FieldInfo getField(Type type, string name) => AccessTools.Field(type, name)
+		?? throw new NullReferenceException($"failed to reflect field {type.FullName}.{name}");
 	private static MethodInfo getMethod(Type type, string name, params Type[] args) => AccessTools.Method(type, name, args)
 		?? throw new NullReferenceException($"failed to reflect method {type.FullName}.{name}{args.Description()}");
 
@@ -78,7 +79,7 @@ public class ShowPID: HacknetPlugin {
 				? [
 					x => x.MatchNop(),
 					x => x.MatchLdarg(1), // loads ExeModule object
-					x => x.MatchCallOrCallvirt(typeof(Module), nameof(Module.LoadContent)), // ilspy shows it's doing `callvirt instance void Hacknet.Module::LoadContent()` on the ExeModule object here
+					x => x.MatchCallvirt(typeof(Module), nameof(Module.LoadContent)), // ilspy shows it's doing `callvirt instance void Hacknet.Module::LoadContent()` on the ExeModule object here
 					x => x.MatchNop(),
 					..instructionSetAddNewExe,
 					x => x.MatchNop(),
