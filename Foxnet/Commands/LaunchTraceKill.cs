@@ -24,8 +24,8 @@ internal class LaunchTraceKill: CommandBase {
 			int free = os.ramAvaliable;
 			IEnumerable<ExeModule> liveExes = os.exes.Where(e => e.ramCost > 0);
 			if (free < TRACEKILL_RAM_COST) { // PASS ONE - remove notes
-				ExeModule[] notes = liveExes.Where(e => e is NotesExe).ToArray();
-				foreach (ExeModule exe in notes) {
+				IEnumerable<ExeModule> filtered = liveExes.Where(e => e is NotesExe);
+				foreach (ExeModule exe in filtered) {
 					int ram = exe.ramCost;
 					if (exe.Kill())
 						free += ram;
@@ -33,9 +33,9 @@ internal class LaunchTraceKill: CommandBase {
 						break;
 				}
 			}
-			if (free < TRACEKILL_RAM_COST) { // PASS TWO - remove shells
-				ExeModule[] shells = liveExes.Where(e => e is ShellExe).ToArray();
-				foreach (ExeModule exe in shells) {
+			if (free < TRACEKILL_RAM_COST) { // PASS TWO - remove theme changers
+				IEnumerable<ExeModule> filtered = liveExes.Where(e => e is ThemeChangerExe);
+				foreach (ExeModule exe in filtered) {
 					int ram = exe.ramCost;
 					if (exe.Kill())
 						free += ram;
@@ -43,9 +43,38 @@ internal class LaunchTraceKill: CommandBase {
 						break;
 				}
 			}
-			if (free < TRACEKILL_RAM_COST) { // PASS THREE - remove everything that's left
-				ExeModule[] programs = liveExes.ToArray();
-				foreach (ExeModule exe in programs) {
+			if (free < TRACEKILL_RAM_COST) { // PASS THREE - remove netmap organisers
+				IEnumerable<ExeModule> filtered = liveExes.Where(e => e is NetmapOrganizerExe);
+				foreach (ExeModule exe in filtered) {
+					int ram = exe.ramCost;
+					if (exe.Kill())
+						free += ram;
+					if (free >= TRACEKILL_RAM_COST)
+						break;
+				}
+			}
+			if (free < TRACEKILL_RAM_COST) { // PASS FOUR - remove music changers
+				IEnumerable<ExeModule> filtered = liveExes.Where(e => e is TuneswapExe);
+				foreach (ExeModule exe in filtered) {
+					int ram = exe.ramCost;
+					if (exe.Kill())
+						free += ram;
+					if (free >= TRACEKILL_RAM_COST)
+						break;
+				}
+			}
+			if (free < TRACEKILL_RAM_COST) { // PASS FIVE - remove shells
+				IEnumerable<ExeModule> filtered = liveExes.Where(e => e is ShellExe);
+				foreach (ExeModule exe in filtered) {
+					int ram = exe.ramCost;
+					if (exe.Kill())
+						free += ram;
+					if (free >= TRACEKILL_RAM_COST)
+						break;
+				}
+			}
+			if (free < TRACEKILL_RAM_COST) { // PASS SIX - remove everything that's left
+				foreach (ExeModule exe in liveExes) {
 					int ram = exe.ramCost;
 					if (exe.Kill())
 						free += ram;
