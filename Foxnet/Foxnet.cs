@@ -41,6 +41,7 @@ public class Foxnet: HacknetPlugin {
 		"When life seems dangerous and unmanageable,\njust remember that it is,\nand that you can't survive forever.",
 		"I will tell you an important secret.\nI will also tell you volumes of worthless nonsense.\nYou will never know which is which.",
 		"Looking for a simple solution to all life's problems?\nWe are proud to present obstinate denial.\nAccept no substitute.\nAccept nothing.",
+		"The future is what you make of it.\nJust know that your supplies are limited.",
 		// FFXIV (I shit you not)
 		"If it is folly to hope,\nthen I am content to die a fool.",
 		"I've sins aplenty, aye, but regrets?\nNot so much.",
@@ -49,18 +50,26 @@ public class Foxnet: HacknetPlugin {
 		"Open your eyes to the darkness,\nand drown in its loveless embrace.\nThe gods will not be watching.",
 		"We may accept our fate or run from it,\nbut we cannot deny it.",
 		"We whom gods and men have forsaken,\nshall be the instruments of our own deliverance.",
+		"Do not seek forgiveness, for it will not ease the burden.\nIt weighs as it should.",
+		"No more shall man have wings to bear him to paradise.\nHenceforth, he shall walk.",
+		"Stay strong.\nKeep the faith.\nAt duty's end, we will meet again.",
 		// Generic badass
 		"It's not a matter of who will let me.\nIt's a question of who can stop me.",
 		"Bury me shallow.\nI'll be back.",
 		"I am a monument to all your sins.",
 		"This is hell's territory,\nand I am beholden to no gods.",
+		"We both looked into the abyss,\nbut when it looked back?\nYou blinked.",
+		"We most emphatically do not come in peace.",
+		"You chose your side.\nYou chose wrong.",
+		"You exist because we allow it,\nand you will end because we demand it.",
 		// Raw quotes (mostly from tumblr lmao)
 		"There is no light at the end of the tunnel,\nso it's a good thing we brought matches.",
 		"If the truth doesn't save us,\nwhat does that say about us?",
-		"To become god is the lonliest achievement of all.",
+		"To become god is the loneliest achievement of all.",
 		"When tyranny becomes law,\nresistance becomes duty.",
 		"I intend to put up with nothing that I can put down.",
 		"I have seen your ideas of justice,\nand I have found them wanting.",
+		"When we finally kill the gods,\nneither heaven nor hell will be waiting for them,\nbecause they created those to imprison us.",
 		// Cool quotes
 		"Not all those who wander are lost.",
 		// Inspirational (sorta)
@@ -69,6 +78,9 @@ public class Foxnet: HacknetPlugin {
 		"When you choose an action,\nyou choose the consequences of that action.\n\nChoose well.",
 		// Snarky shit
 		"Lead me not into temptation,\nfor I can find it myself.",
+		"I said it was clever.\nI didn't say it was smart.",
+		"Legally, it's questionable.\nMorally, it's disgusting.\nPersonally, I like it.",
+		"Have a plan.\nHave a backup plan, because the first one won't work.",
 		// Paranoia (TTRPG)
 		"Friend Computer thanks you for your service.",
 		"Mine is the last voice you will ever hear.\nDo not be alarmed.",
