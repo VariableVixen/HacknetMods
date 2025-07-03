@@ -1,8 +1,8 @@
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class AddProxy: CommandBase {
 	public override string Description { get; } = "Adds a proxy to the connected system";

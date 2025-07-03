@@ -3,9 +3,9 @@ using System.Linq;
 
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class ShowPluginHelp: CommandBase {
 	public override string Command { get; } = "foxnet";

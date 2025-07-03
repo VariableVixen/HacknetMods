@@ -2,7 +2,7 @@ using System.Linq;
 
 using Hacknet;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class ResetOwnIp: CommandBase {
 	public override string Description { get; } = "Immediately resets your own IP; reboots unless used with -s";

@@ -1,8 +1,8 @@
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class AddFirewall: CommandBase {
 	public override string Description { get; } = "Adds a firewall to the connected system";

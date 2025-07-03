@@ -2,9 +2,9 @@ using Hacknet;
 
 using Pathfinder.Port;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class ResetSecurity: CommandBase {
 	public override string Description { get; } = "Instantly closes all ports and resets firewall/proxy";

@@ -9,7 +9,7 @@
 	<Import Project="../common.props" />
 
 	<PropertyGroup>
-		<RootNamespace>PrincessRTFM.Hacknet.Lib</RootNamespace>
+		<RootNamespace>VariableVixen.Hacknet.Lib</RootNamespace>
 	</PropertyGroup>
 
 </Project>

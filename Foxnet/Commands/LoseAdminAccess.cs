@@ -1,8 +1,8 @@
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class LoseAdminAccess: CommandBase {
 	public override string Description { get; } = "Lose admin access on a computer you have it on";

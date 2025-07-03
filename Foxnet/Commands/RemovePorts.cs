@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Hacknet;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class RemovePorts {
 	// TODO remove ports from the target machine

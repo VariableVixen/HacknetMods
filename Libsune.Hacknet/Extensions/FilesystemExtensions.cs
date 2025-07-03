@@ -4,7 +4,7 @@ using Hacknet;
 
 using Pathfinder.Util;
 
-namespace PrincessRTFM.Hacknet.Lib.Extensions;
+namespace VariableVixen.Hacknet.Lib.Extensions;
 
 public static class FilesystemExtensions {
 

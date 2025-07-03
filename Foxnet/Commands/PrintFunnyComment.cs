@@ -1,6 +1,6 @@
 using Hacknet;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class PrintFunnyComment: CommandBase {
 	public override string Command { get; } = "foxlol";

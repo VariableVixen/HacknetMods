@@ -5,9 +5,9 @@ using Hacknet;
 
 using Pathfinder.Executable;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class LaunchTraceKill: CommandBase {
 	public const int TRACEKILL_RAM_COST = 600;

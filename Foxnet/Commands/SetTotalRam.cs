@@ -1,8 +1,8 @@
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class SetTotalRam: CommandBase {
 	public const int DEFAULT_RAM = 761;

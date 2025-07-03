@@ -1,8 +1,8 @@
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet.Commands;
+namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class ResetIp: CommandBase {
 	public override string Description { get; } = "Immediately resets the target machine's IP, defaulting to the connected system";

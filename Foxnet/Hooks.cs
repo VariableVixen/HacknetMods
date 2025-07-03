@@ -13,9 +13,9 @@ using Pathfinder;
 using Pathfinder.Port;
 using Pathfinder.Util;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet;
+namespace VariableVixen.Hacknet.Foxnet;
 
 [HarmonyPatch]
 [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "parameter names must conform to Harmony specs in order to work")]
@@ -159,7 +159,7 @@ public static class Hooks {
 
 	[HarmonyPostfix]
 	[HarmonyPatch(typeof(Programs), nameof(Programs.computerExists))]
-	private static void CheckComputerExistenceById(string ip, ref bool __result) => __result = __result || (ComputerLookup.FindById(ip) is not null);
+	private static void CheckComputerExistenceById(string ip, ref bool __result) => __result = __result || ComputerLookup.FindById(ip) is not null;
 
 	#endregion
 

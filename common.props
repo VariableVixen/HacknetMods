@@ -5,7 +5,7 @@
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 		<OutputType>Library</OutputType>
-		<RootNamespace>PrincessRTFM.Hacknet.$(Product)</RootNamespace>
+		<RootNamespace>VariableVixen.Hacknet.$(Product)</RootNamespace>
 		<AssemblyName Condition=" '$(Product)' != '' ">$(Product)</AssemblyName>
 		<TargetFramework>net4.7.2</TargetFramework>
 		<FileAlignment>512</FileAlignment>

@@ -18,7 +18,7 @@ using Pathfinder.Executable;
 
 using Module = Hacknet.Module;
 
-namespace PrincessRTFM.Hacknet.ShowPID;
+namespace VariableVixen.Hacknet.ShowPID;
 
 [HarmonyPatch]
 [BepInPlugin(GUID, NAME, VERSION)]

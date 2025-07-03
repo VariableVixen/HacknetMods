@@ -11,9 +11,9 @@ using Hacknet;
 
 using Pathfinder.Command;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet;
+namespace VariableVixen.Hacknet.Foxnet;
 
 [BepInPlugin(GUID, NAME, VERSION)]
 [BepInDependency(Pathfinder.PathfinderAPIPlugin.ModGUID)]

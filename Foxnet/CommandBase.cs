@@ -3,9 +3,9 @@ using System.Linq;
 
 using Hacknet;
 
-using PrincessRTFM.Hacknet.Lib.Extensions;
+using VariableVixen.Hacknet.Lib.Extensions;
 
-namespace PrincessRTFM.Hacknet.Foxnet;
+namespace VariableVixen.Hacknet.Foxnet;
 
 internal abstract class CommandBase {
 	private string? cachedTypeName, cachedUsage;
