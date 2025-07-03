@@ -32,7 +32,7 @@ public class ShowPID: HacknetPlugin {
 	internal static ManualLogSource Logger { get; private set; } = null!;
 	public override bool Load() {
 		Logger = this.Log;
-		Logger.LogInfo("Patching OS.addExe()");
+		Logger.LogInfo("Patching methods...");
 		this.HarmonyInstance.PatchAll(this.GetType().Assembly);
 		return true;
 	}
@@ -45,8 +45,8 @@ public class ShowPID: HacknetPlugin {
 
 	[HarmonyILManipulator]
 	[HarmonyPatch(typeof(OS), nameof(OS.addExe))]
-	[HarmonyPatch(typeof(ExecutableManager), nameof(ExecutableManager.AddGameExecutable), [typeof(OS), typeof(GameExecutable)])]
-	private static void injectPidDisplayOnVanillaExeAdd(ILContext context, MethodBase original) {
+	[HarmonyPatch(typeof(ExecutableManager), nameof(ExecutableManager.AddGameExecutable), [typeof(OS), typeof(GameExecutable)])] // this is an extension method
+	private static void injectPidDisplayOnAddExe(ILContext context, MethodBase original) {
 		if (original is null)
 			return;
 
@@ -101,7 +101,7 @@ public class ShowPID: HacknetPlugin {
 			ILLabel skipExeName = il.DefineLabel(); // the label used to branch past the exe name fallback if necessary
 			il.Emit(OpCodes.Ldarg_0); // load OS instance
 			il.Emit(OpCodes.Ldstr, "Started "); // first part of the message
-			il.Emit(OpCodes.Ldarg_1); // load the ExeModule
+			il.Emit(OpCodes.Ldarg_1); // load the ExeModule (GameExecutable extends BaseExecutable which extends ExeModule)
 			il.Emit(OpCodes.Ldfld, exeIdentifierName); // load ExeModule.IdentifierName from the exe
 			il.Emit(OpCodes.Dup); // make a second copy for the null check
 			il.Emit(OpCodes.Ldnull); // load a null reference to check against
@@ -124,7 +124,7 @@ public class ShowPID: HacknetPlugin {
 			il.Emit(OpCodes.Callvirt, osWrite); // invoke OS.write(string) on the OS instance loaded at the start of all this, passing the constructed message
 		}
 		catch (Exception e) {
-			Logger.LogError($"Failed to patch OS.addExe(ExeModule): {e.GetType().Name}");
+			Logger.LogError($"Failed to apply patch: {e.GetType().Name}");
 			Logger.LogError(e.Message);
 			foreach (string line in e.StackTrace.Split('\n'))
 				Logger.LogError(line);
