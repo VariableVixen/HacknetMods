@@ -18,7 +18,7 @@ internal class ShowPluginHelp: CommandBase {
 		];
 
 		if (args.Length == 1) {
-			string want = args[0].ToLower();
+			string want = args[0];
 			if (Foxnet.RegisteredCommands.TryGetValue(want, out CommandBase found)) {
 				lines.Add(found.Usage);
 				lines.AddRange(found.Description.Split('\n').Select(line => $"> {line}"));

@@ -27,7 +27,7 @@ public class Foxnet: HacknetPlugin {
 
 	internal delegate void PluginCommandDelegate(OS os, string cmd, string[] args);
 
-	internal static Dictionary<string, CommandBase> RegisteredCommands { get; private set; } = [];
+	internal static Dictionary<string, CommandBase> RegisteredCommands { get; private set; } = new(StringComparer.OrdinalIgnoreCase);
 	private static ManualLogSource logger { get; set; } = null!;
 
 	private static readonly Dictionary<string, string> exeFileCache = [];
@@ -129,7 +129,7 @@ public class Foxnet: HacknetPlugin {
 					//Console.WriteLine($"Registering command alias {alt}");
 					try {
 						CommandManager.RegisterCommand(alt, cmd.RedirectHacknetInvocation);
-						RegisteredCommands[alt.ToLower()] = cmd;
+						RegisteredCommands[alt] = cmd;
 					}
 					catch (NotImplementedException ex) {
 						Warn($"Ignoring {ex.GetType().Name} ({ex.Message}) and crossing our fingers...");
