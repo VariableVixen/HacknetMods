@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -75,8 +74,7 @@ public static class Hooks {
 			return;
 
 		string name = p[0];
-		string[] args = p.Skip(1).ToArray();
-		if (args.Length > 0) // if any arguments were passed, abort
+		if (p.Length > 1) // if any arguments were passed, abort
 			return;
 
 		Computer local = os.thisComputer;
@@ -130,7 +128,7 @@ public static class Hooks {
 			p = [name, target.ToString()];
 		}
 
-		if (p.Length > 1) {
+		if (p.Length > 1) { // if arguments were originally passed, we don't get here, so this checks if we've found a port to auto-select
 			os.terminal.lastRunCommand = string.Join(" ", p);
 			os.display.command = name;
 			os.display.commandArgs = p;
