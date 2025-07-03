@@ -29,7 +29,7 @@ internal class StopTrace: CommandBase {
 			worked = true;
 		}
 
-		if (worked)
-			Foxnet.PrintRandomSnark(os);
+		if (!worked)
+			os.Print(Foxnet.MESSAGE_PREFIX, "Nothing to do");
 	}
 }

@@ -16,6 +16,5 @@ internal class DeleteAllLogs: CommandBase {
 		}
 		c.files?.root?.searchForFolder("log")?.files?.Clear();
 		os.Print(Foxnet.MESSAGE_PREFIX, "Wiped all logs");
-		Foxnet.PrintRandomSnark(os);
 	}
 }

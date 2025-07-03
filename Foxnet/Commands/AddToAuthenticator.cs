@@ -46,7 +46,6 @@ internal class AddToAuthenticator: CommandBase {
 					));
 					os.netMap.discoverNode(daemon);
 					os.Print(Foxnet.MESSAGE_PREFIX, $"Identified authenticator {target}, added to IP list");
-					Foxnet.PrintRandomSnark(os);
 					return;
 				}
 			}

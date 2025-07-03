@@ -7,5 +7,7 @@ internal class PrintFunnyComment: CommandBase {
 	public override string Description { get; } = "Displays a silly/funny comment";
 	public override string[] Arguments { get; } = [];
 
-	public override void Execute(OS os, string cmd, string[] args) => Foxnet.PrintRandomSnark(os, false);
+	public override void Execute(OS os, string cmd, string[] args) {
+		// nop - CommandBase.RedirectHacknetInvocation prints a snark automatically when the command doesn't throw anything
+	}
 }

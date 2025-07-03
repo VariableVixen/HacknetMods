@@ -15,7 +15,6 @@ internal class CleanDisconnect: CommandBase {
 			Programs.disconnect(["disconnect"], os);
 			remote.files?.root?.searchForFolder("log")?.files?.Clear();
 			os.Print(Foxnet.MESSAGE_PREFIX, $"Wiped remote logs on {remote.ip}");
-			Foxnet.PrintRandomSnark(os);
 		}
 	}
 }

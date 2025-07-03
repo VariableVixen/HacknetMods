@@ -17,7 +17,6 @@ internal class BypassProxy: CommandBase {
 				c.proxyOverloadTicks = 0;
 				c.proxyActive = false;
 				os.Print(Foxnet.MESSAGE_PREFIX, "Proxy disabled");
-				Foxnet.PrintRandomSnark(os);
 			}
 			else {
 				os.Print(Foxnet.MESSAGE_PREFIX, "No proxy present");

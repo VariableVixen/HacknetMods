@@ -22,6 +22,5 @@ internal class ToggleStealthMode: CommandBase {
 				break;
 		}
 		os.Print(Foxnet.MESSAGE_PREFIX, $"Your logs are{(Hooks.BlockComputerLogs ? "" : " not")} being blocked");
-		Foxnet.PrintRandomSnark(os);
 	}
 }

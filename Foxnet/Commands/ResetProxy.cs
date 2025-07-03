@@ -17,7 +17,6 @@ internal class ResetProxy: CommandBase {
 				c.proxyOverloadTicks = c.startingOverloadTicks;
 				c.proxyActive = true;
 				os.Print(Foxnet.MESSAGE_PREFIX, "Proxy enabled");
-				Foxnet.PrintRandomSnark(os);
 			}
 			else {
 				os.Print(Foxnet.MESSAGE_PREFIX, "No proxy present");

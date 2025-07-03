@@ -21,8 +21,6 @@ internal class ForceHack: CommandBase {
 
 			os.takeAdmin();
 			os.Print(Foxnet.MESSAGE_PREFIX, "Admin access granted");
-
-			Foxnet.PrintRandomSnark(os);
 		}
 	}
 }

@@ -22,6 +22,5 @@ internal class ToggleAutoPortSelection: CommandBase {
 				break;
 		}
 		os.Print(Foxnet.MESSAGE_PREFIX, $"Vanilla portcrushers are {(Hooks.AutoSelectPorts ? "smart" : "dumb")}");
-		Foxnet.PrintRandomSnark(os);
 	}
 }

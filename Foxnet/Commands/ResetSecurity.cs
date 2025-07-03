@@ -46,8 +46,6 @@ internal class ResetSecurity: CommandBase {
 			else {
 				os.Print(Foxnet.MESSAGE_PREFIX, "No proxy present");
 			}
-
-			Foxnet.PrintRandomSnark(os);
 		}
 		else {
 			os.Print(Foxnet.MESSAGE_PREFIX, "Target computer not found");

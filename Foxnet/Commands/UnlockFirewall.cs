@@ -17,7 +17,6 @@ internal class UnlockFirewall: CommandBase {
 				c.firewall.solved = true;
 				c.firewall.analysisPasses = c.firewall.solutionLength;
 				os.Print(Foxnet.MESSAGE_PREFIX, $"Firewall unlocked ({c.firewall.solution ?? "<no solution?>"})");
-				Foxnet.PrintRandomSnark(os);
 			}
 			else {
 				os.Print(Foxnet.MESSAGE_PREFIX, "No firewall present");

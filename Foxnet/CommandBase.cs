@@ -49,6 +49,7 @@ internal abstract class CommandBase {
 
 		try {
 			this.Execute(os, cmd, args);
+			Foxnet.PrintRandomSnark(os);
 		}
 		catch (Exception ex) {
 			os.Print(Foxnet.MESSAGE_PREFIX, $"Foxnet command error in {this.GetType().Name}:\n> {ex.GetType().Name}\n>> {ex.Message}");

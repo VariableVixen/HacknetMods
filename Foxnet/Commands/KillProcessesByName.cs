@@ -9,7 +9,7 @@ using VariableVixen.Hacknet.Lib.Extensions;
 namespace VariableVixen.Hacknet.Foxnet.Commands;
 
 internal class KillProcessesByName: CommandBase {
-	public override string[] Aliases { get; } = ["killall", "kills", "ka", "ks"];
+	public override string[] Aliases { get; } = ["killall", "kills", "ka", "ks"]; // vanilla registers `pkill` as an alias to `kill` (which is WRONG)
 	public override string Description { get; } = "Kills process with a name containing (default) or matching (-e) the given string";
 	public override string[] Arguments { get; } = ["-e?", "search"];
 

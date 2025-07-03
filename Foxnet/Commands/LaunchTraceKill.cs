@@ -13,7 +13,7 @@ internal class LaunchTraceKill: CommandBase {
 	public const int TRACEKILL_RAM_COST = 600;
 
 	public override string[] Aliases { get; } = ["tkill", "tk"];
-	public override string Description { get; } = "Instantly launches TraceKill.exe, closing all open programs if you don't have the RAM";
+	public override string Description { get; } = "Instantly launches TraceKill.exe, closing open programs if you need more RAM";
 	public override string[] Arguments { get; } = [];
 
 	public override void Execute(OS os, string cmd, string[] args) {
