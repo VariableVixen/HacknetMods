@@ -31,12 +31,14 @@ internal class KillProcessesByName: CommandBase {
 			if (exe is BaseExecutable custom)
 				names[2] = custom.Args[0];
 			else
-				names[2] = string.Empty; // TODO find a way to get this from base game exes
+				names[2] = string.Empty; // TODO find a way to get this from base game exes - ExeModule doesn't store the magic file string so it'll be a trick and a half
 			string debug = $"PID {exe.PID}: name=[{names[0]}] IdentifierName=[{names[1]}] arg0=[{names[2]}] - ";
 			if (names.Any(n => exact ? n.ToLower().Equals(target) : n.ToLower().Contains(target))) {
 				Foxnet.Debug(debug + "MATCH");
-				exe.Kill();
-				os.Print(Foxnet.MESSAGE_PREFIX, $"Killed {exe.IdentifierName ?? exe.name} ({exe.PID})");
+				if (exe.Kill())
+					os.Print(Foxnet.MESSAGE_PREFIX, $"Killed {exe.IdentifierName ?? exe.name} ({exe.PID})");
+				else
+					os.Print(Foxnet.MESSAGE_PREFIX, $"Unable to kill {exe.IdentifierName ?? exe.name} ({exe.PID})");
 				found = true;
 			}
 			else {
