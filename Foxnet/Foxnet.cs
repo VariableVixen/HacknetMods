@@ -16,7 +16,7 @@ using VariableVixen.Hacknet.Lib.Extensions;
 namespace VariableVixen.Hacknet.Foxnet;
 
 [BepInPlugin(GUID, NAME, VERSION)]
-[BepInDependency(Pathfinder.PathfinderAPIPlugin.ModGUID)]
+[BepInDependency("PrincessRTFM.LibsuneHacknet")]
 public class Foxnet: HacknetPlugin {
 	public const string
 		GUID = $"PrincessRTFM.{NAME}",

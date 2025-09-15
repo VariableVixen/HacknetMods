@@ -22,12 +22,11 @@ namespace VariableVixen.Hacknet.ShowPID;
 
 [HarmonyPatch]
 [BepInPlugin(GUID, NAME, VERSION)]
-[BepInDependency(Pathfinder.PathfinderAPIPlugin.ModGUID)]
 public class ShowPID: HacknetPlugin {
 	public const string
 		GUID = $"PrincessRTFM.{NAME}",
 		NAME = "ShowPID",
-		VERSION = "1.0.1";
+		VERSION = "1.0.2";
 
 	internal static ManualLogSource Logger { get; private set; } = null!;
 	public override bool Load() {
