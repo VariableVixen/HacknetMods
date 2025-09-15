@@ -27,7 +27,7 @@ public class ShowPID: HacknetPlugin {
 	public const string
 		GUID = $"PrincessRTFM.{NAME}",
 		NAME = "ShowPID",
-		VERSION = "1.0.0";
+		VERSION = "1.0.1";
 
 	internal static ManualLogSource Logger { get; private set; } = null!;
 	public override bool Load() {
